@@ -1,5 +1,5 @@
 import './App.css';
-import React, {useRef, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import shortid from 'shortid';
 
 import firebase from 'firebase/compat/app';
@@ -73,7 +73,7 @@ function SignOut() {
 function ChatRoom() {
   const dummy = useRef();
   const messagesRef = firestore.collection('messages');
-  const query = messagesRef.orderBy('createdAt').limit(25);
+  const query = messagesRef.orderBy('createdAt').limit();
 
   const [messages] = useCollectionData(query, { idField: 'id' });
 
@@ -93,8 +93,13 @@ function ChatRoom() {
     })
 
     setFormValue('');
-    dummy.current.scrollIntoView({ behavior: 'smooth' });
   }
+
+  useEffect(() => {
+    dummy.current.scrollIntoView({ 
+      behavior: 'smooth' });
+  })
+
 
   return (<>
     <main>
@@ -104,7 +109,7 @@ function ChatRoom() {
       message={msg} />)}
 
       <span ref={dummy}></span>
-
+        
     </main>
 
     <form onSubmit={sendMessage}>
