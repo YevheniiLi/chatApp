@@ -80,9 +80,12 @@ function ChatRoom() {
   const [formValue, setFormValue] = useState('');
 
 
+
+
   const sendMessage = async (e) => {
     e.preventDefault();
 
+ 
     const { uid, photoURL } = auth.currentUser;
 
     await messagesRef.add({
@@ -99,6 +102,8 @@ function ChatRoom() {
     dummy.current.scrollIntoView({ 
       behavior: 'smooth' });
   })
+
+ 
 
 
   return (<>
