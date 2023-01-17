@@ -5,7 +5,6 @@ import shortid from 'shortid';
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/firestore';
 import 'firebase/compat/auth';
-// import 'firebase/compat/analytics';
 
 import {useAuthState} from 'react-firebase-hooks/auth';
 import { useCollectionData} from 'react-firebase-hooks/firestore';
@@ -23,10 +22,6 @@ firebase.initializeApp({
 
 const auth = firebase.auth();
 const firestore = firebase.firestore();
-// const analytics = firebase.analytics();
-
-
-
 
 
 function App() {
@@ -37,9 +32,11 @@ function App() {
     <div className="App">
       <header>
         <h1>🧩</h1>
+        {/* <div className='box'>
+          <i className='fab fa-apple logo' aria-hidden='true'></i>
+        </div> */}
         <SignOut />
       </header>
-
       <section>
         {user ? <ChatRoom /> : <SignIn />}
       </section>
@@ -101,14 +98,11 @@ function ChatRoom() {
   useEffect(() => {
     dummy.current.scrollIntoView({ 
       behavior: 'smooth' });
-  })
-
- 
-
+  });
 
   return (<>
     <main>
-
+      
       {messages && messages.map(msg => <ChatMessage 
       key={shortid.generate()} 
       message={msg} />)}
@@ -126,8 +120,6 @@ function ChatRoom() {
     </form>
   </>)
 }
-
-
 
 
 function ChatMessage(props) {
