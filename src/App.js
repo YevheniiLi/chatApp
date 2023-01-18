@@ -31,10 +31,7 @@ function App() {
   return (
     <div className="App">
       <header>
-        <h1>🧩</h1>
-        {/* <div className='box'>
-          <i className='fab fa-apple logo' aria-hidden='true'></i>
-        </div> */}
+        <h1>👻</h1>
         <SignOut />
       </header>
       <section>
@@ -113,7 +110,7 @@ function ChatRoom() {
 
     <form onSubmit={sendMessage}>
 
-      <input value={formValue} onChange={(e) => setFormValue(e.target.value)} placeholder="say something nice" />
+      <input value={formValue} onChange={(e) => setFormValue(e.target.value)} placeholder="write something nice" />
 
       <button type="submit" disabled={!formValue}>🕊️</button>
 
