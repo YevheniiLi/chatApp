@@ -28,7 +28,7 @@ function App() {
   return (
     <div className="App">
       <header>
-      <img src="/src/img/envelope6.jpg" alt="Logo" />
+      <img src={process.env.PUBLIC_URL + "/img/pngegg.png"} alt="Logo" />
         <SignOut />
       </header>
       <section>{user ? <ChatRoom /> : <SignIn />}</section>
@@ -36,7 +36,7 @@ function App() {
   );
 }
 
-function SignIn() {
+function SignIn() { 
   const signInWithGoogle = () => {
     const provider = new GoogleAuthProvider();
     signInWithPopup(auth,provider);
