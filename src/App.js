@@ -2,25 +2,27 @@ import "./App.css";
 import React, { useEffect, useRef, useState } from "react";
 import shortid from "shortid";
 
-import { initializeApp } from "firebase/app";
-import { getAuth,signInWithPopup, GoogleAuthProvider } from "firebase/auth";
-import { collection, addDoc, serverTimestamp, query, orderBy, limit } from "firebase/firestore";
-import { useAuthState } from "react-firebase-hooks/auth";
-import { useCollectionData } from "react-firebase-hooks/firestore";
-import { getFirestore } from "firebase/firestore";
+import { initializeApp } from 'firebase/app';
+import { getAuth, signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
+import { collection, addDoc, serverTimestamp, query, orderBy, limit } from 'firebase/firestore';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { useCollectionData } from 'react-firebase-hooks/firestore';
+import { getFirestore } from 'firebase/firestore';
 
-initializeApp({
+const firebaseConfig = {
   apiKey: "AIzaSyBYye2LShEYNdO8Tt3kcd2wC4CR2rREp6U",
   authDomain: "chatapp-950ee.firebaseapp.com",
   projectId: "chatapp-950ee",
   storageBucket: "chatapp-950ee.appspot.com",
   messagingSenderId: "408860841933",
   appId: "1:408860841933:web:03fce8fb362cd8d3ba5684",
-  measurementId: "G-PB1QLGDTKQ",
-});
+  measurementId: "G-PB1QLGDTKQ"
+};
 
-const auth = getAuth();
-const firestore = getFirestore();
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const firestore = getFirestore(app);
 
 function App() {
   const [user] = useAuthState(auth);
