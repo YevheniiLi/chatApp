@@ -10,15 +10,14 @@ import { useCollectionData } from 'react-firebase-hooks/firestore';
 import { getFirestore } from 'firebase/firestore';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBYye2LShEYNdO8Tt3kcd2wC4CR2rREp6U",
-  authDomain: "chatapp-950ee.firebaseapp.com",
-  projectId: "chatapp-950ee",
-  storageBucket: "chatapp-950ee.appspot.com",
-  messagingSenderId: "408860841933",
-  appId: "1:408860841933:web:03fce8fb362cd8d3ba5684",
-  measurementId: "G-PB1QLGDTKQ"
+  apiKey: "AIzaSyC2zXWiMmLmSF2QCwQ02A0mB86lG9gj3BI",
+  authDomain: "chatapp23-5498f.firebaseapp.com",
+  projectId: "chatapp23-5498f",
+  storageBucket: "chatapp23-5498f.appspot.com",
+  messagingSenderId: "454744665125",
+  appId: "1:454744665125:web:1e3adf9171c66212a063cc",
+  measurementId: "G-K5EVQ0RL4H"
 };
-
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
@@ -38,10 +37,14 @@ function App() {
   );
 }
 
-function SignIn() { 
+function SignIn() {
   const signInWithGoogle = () => {
     const provider = new GoogleAuthProvider();
-    signInWithPopup(auth,provider);
+    try {
+      signInWithPopup(auth, provider);
+    } catch (error) {
+      console.error("Firebase Error:", error.message);
+    }
   };
   return (
     <>
