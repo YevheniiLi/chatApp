@@ -120,7 +120,7 @@ function ChatRoom() {
         />
 
         <button type="submit" disabled={!formValue}>
-          📤
+        ▷
         </button>
       </form>
     </>
