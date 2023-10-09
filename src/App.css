@@ -1,5 +1,6 @@
 body {
   background-color: #282c34;
+  font-size: 16px;
 }
 
 .App {
@@ -30,9 +31,10 @@ body {
   flex-direction: column;
   justify-content: center;
   min-height: 100vh;
-  background-color: #CCE8FF;
+  background-color: #f0f0f0;
 }
 main {
+  background-color: #f0f0f0;
   padding: 10px;
   height: 80vh;
   margin: 10vh 0 10vh;
@@ -73,14 +75,14 @@ form button {
 
 
 input {
-  line-height: 1.5;
+  line-height: 1.2;
   width: 100%;
-  font-size: 1.5rem;
+  font-size: 1rem;
   background: white;
-  color: black;
+  color: #333333;
   outline: none;
   border: none;
-  padding: 0 10px;
+  padding: 0 8px;
 }
 
 button {
